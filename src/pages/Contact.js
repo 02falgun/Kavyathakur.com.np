@@ -11,38 +11,12 @@ const Contact = () => {
     message: ''
   });
 
-  const [formStatus, setFormStatus] = useState({
-    message: '',
-    isSuccess: false,
-    isSubmitted: false
-  });
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevData => ({
       ...prevData,
       [name]: value
     }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // In a real application, you would handle form submission to a backend service here
-    
-    // Simulate form submission success for demonstration
-    setFormStatus({
-      message: 'Thank you! Your message has been sent successfully.',
-      isSuccess: true,
-      isSubmitted: true
-    });
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
   };
 
   return (
@@ -57,7 +31,7 @@ const Contact = () => {
           Let's connect and discuss opportunities
         </p>
       </motion.div>
-      
+
       <div className="contact-content">
         <motion.div className="contact-info"
           initial="hidden"
@@ -70,10 +44,10 @@ const Contact = () => {
         >
           <h3 className="info-title">Let's get in touch</h3>
           <p className="info-description">
-            I'm always interested in connecting with fellow students, faculty, or potential employers for internships, projects, 
+            I'm always interested in connecting with fellow students, faculty, or potential employers for internships, projects,
             or collaborative learning opportunities. Feel free to reach out with any questions or just to say hello!
           </p>
-          
+
           <div className="contact-details">
             <div className="contact-item" data-aos="fade-up" data-aos-delay="100">
               <div className="contact-icon">
@@ -103,7 +77,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          
+
           <motion.div className="social-links"
             initial="hidden"
             whileInView="visible"
@@ -118,6 +92,7 @@ const Contact = () => {
             <a href="#" className="social-icon"><FaTwitter /></a>
           </motion.div>
         </motion.div>
+
         <motion.div className="contact-form-container"
           initial="hidden"
           whileInView="visible"
@@ -128,18 +103,16 @@ const Contact = () => {
           }}
         >
           <h3 className="form-title">Send me a message</h3>
-          
-          {formStatus.isSubmitted && (
-            <motion.div className={`form-message ${formStatus.isSuccess ? 'success' : 'error'}`}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.4 }}
-            >
-              {formStatus.message}
-            </motion.div>
-          )}
-          
-          <form className="contact-form" onSubmit={handleSubmit}>
+
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            className="contact-form"
+          >
+            {/* Hidden input for Netlify form detection */}
+            <input type="hidden" name="form-name" value="contact" />
+
             <div className="form-group">
               <label htmlFor="name">Your Name</label>
               <input
@@ -152,7 +125,7 @@ const Contact = () => {
                 placeholder="Enter your name"
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="email">Your Email</label>
               <input
@@ -165,7 +138,7 @@ const Contact = () => {
                 placeholder="Enter your email"
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="subject">Subject</label>
               <input
@@ -178,7 +151,7 @@ const Contact = () => {
                 placeholder="Enter subject"
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="message">Your Message</label>
               <textarea
@@ -191,11 +164,19 @@ const Contact = () => {
                 rows="5"
               ></textarea>
             </div>
-            
-            <motion.button type="submit" className="btn-submit"
-              whileHover={{ scale: 1.08, background: 'linear-gradient(90deg, #00eaff 0%, #007bff 100%)', color: '#fff' }}
+
+            <motion.button
+              type="submit"
+              className="btn-submit"
+              whileHover={{
+                scale: 1.08,
+                background: 'linear-gradient(90deg, #00eaff 0%, #007bff 100%)',
+                color: '#fff',
+              }}
               whileTap={{ scale: 0.95 }}
-            >Send Message</motion.button>
+            >
+              Send Message
+            </motion.button>
           </form>
         </motion.div>
       </div>
