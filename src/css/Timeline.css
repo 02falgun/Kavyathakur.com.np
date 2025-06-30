@@ -1,0 +1,212 @@
+/* Timeline Component Styles */
+.timeline-section {
+  margin: 80px 0;
+}
+
+.timeline-title {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--accent-color);
+  text-align: center;
+  font-weight: 600;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background-color: var(--accent-color-light);
+  left: 50px;
+  top: 0;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  padding-left: 80px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  left: 41px;
+  transform: translateX(-50%);
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.2);
+  z-index: 2;
+}
+
+.dark-theme .timeline-dot {
+  border-color: #2a2a35;
+}
+
+.timeline-date {
+  position: absolute;
+  left: -25px; /* Shifted left for more space */
+  top: 3px;
+  width: 90px; /* Increased width for more space */
+  text-align: right;
+  padding-right: 40px; /* Increased padding for more space */
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1;
+  transition: all 0.3s ease;
+  z-index: 3; /* Ensure date appears above dot animation */
+  background-color: transparent; /* Allow text to be visible through animation */
+  /* Add text shadow for better readability */
+  /* text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.9); */
+}
+
+.timeline-item:hover .timeline-date {
+  color: #0056b3; /* Darker shade on hover */
+  transform: scale(1.05);
+  font-weight: 800; /* Extra bold on hover */
+}
+
+.timeline-content {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-left: 3px solid var(--accent-color);
+}
+
+.dark-theme .timeline-content {
+  background-color: #2a2a35;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-content:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.dark-theme .timeline-content:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-content h4 {
+  margin: 0 0 8px;
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.timeline-content h5 {
+  margin: 0 0 15px;
+  color: var(--accent-color);
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+.dark-theme .timeline-content h4 {
+  color: #f8f9fa;
+}
+
+.dark-theme .timeline-content p {
+  color: #aaa;
+}
+
+@keyframes pulseTimeline {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); /* Increased opacity for more vibrance */
+    background-color: #007bff; /* Blue */
+  }
+  33% {
+    box-shadow: 0 0 0 5px rgba(23, 162, 184, 0.5); /* Teal */
+    background-color: #17a2b8;
+  }
+  66% {
+    box-shadow: 0 0 0 8px rgba(40, 167, 69, 0.3); /* Green */
+    background-color: #28a745;
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    background-color: var(--accent-color);
+  }
+}
+
+.timeline-item:hover .timeline-dot {
+  animation: pulseTimeline 2s infinite;
+  /* Increase z-index but keep below date (z-index: 3) */
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .timeline-container::before {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    padding-left: 65px; /* Slightly increased to accommodate the dot and date */
+  }
+  
+  .timeline-dot {
+    left: 21px;
+  }
+  
+  .timeline-date {
+    left: -15px; /* Moved further left on mobile */
+    width: 65px;
+    padding-right: 25px;
+    font-size: 0.95rem;
+    font-weight: 700; /* Bolder text for better readability */
+    background-color: rgba(255, 255, 255, 0.85); /* Stronger background for better contrast */
+    border-radius: 3px; /* Rounded corners for the background */
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  
+  .dark-theme .timeline-date {
+    background-color: rgba(42, 42, 53, 0.85);
+  }
+  
+  .timeline-content h4 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-container {
+    padding: 0 10px;
+  }
+  
+  .timeline-content {
+    padding: 15px;
+  }
+  
+  .timeline-content h4 {
+    font-size: 1.1rem;
+  }
+  
+  .timeline-content h5 {
+    font-size: 0.9rem;
+  }
+  
+  .timeline-content p {
+    font-size: 0.9rem;
+  }
+}

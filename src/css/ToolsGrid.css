@@ -1,0 +1,137 @@
+.tools-section {
+  padding: 80px 0;
+  background-color: #1e1e24;
+  color: #fff;
+}
+
+.dark-theme .tools-section {
+  background-color: #151519;
+}
+
+.light-theme .tools-section {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.tools-section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.tools-category {
+  color: var(--accent-color);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.tools-title {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.light-theme .tools-title {
+  color: #333;
+}
+
+.skills-level {
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  font-weight: 500;
+  color: #aaa;
+}
+
+.tools-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.skills-category {
+  margin-bottom: 60px;
+}
+
+.secondary-category {
+  margin-top: 80px;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 120px);
+  gap: 30px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.tool-item {
+  background-color: #2a2a35;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 1;
+}
+
+.light-theme .tool-item {
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tool-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tool-item i {
+  font-size: 48px;
+}
+
+@media (max-width: 1024px) {
+  .tools-grid {
+    grid-template-columns: repeat(6, 100px);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: repeat(3, 100px);
+    gap: 20px;
+  }
+
+  .tools-title {
+    font-size: 2.5rem;
+  }
+
+  .tool-item {
+    padding: 15px;
+  }
+  
+  .tool-item i {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 120px);
+    gap: 15px;
+  }
+
+  .tools-title {
+    font-size: 2rem;
+  }
+  
+  .tools-section {
+    padding: 60px 0;
+  }
+}
