@@ -4,7 +4,7 @@ A modern, animated, and responsive portfolio website showcasing projects, skills
 
 ## 🚀 Live Demo
 
-kavyathakurcomnp.netlify.app
+[kavyathakurcomnp.netlify.app](https://kavyathakurcomnp.netlify.app/)
 
 ## ✨ Features
 
